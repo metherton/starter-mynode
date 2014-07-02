@@ -3,13 +3,12 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Global Styles */
 html, body {
-    background-color:black;
+  background: url(/whitey.png) center top repeat;
 }
 
 html, body, * {
-    font-family:"Press Start 2P";
+    font-family: Helvetica, Arial, sans-serif;
     font-size:18px;
-    color:white;
 }
 
 form {
@@ -44,17 +43,13 @@ p {
 }
 
 a {
-    color:orange;
 }
 
 b {
-    color:yellow;
     font-weight:bold;
 }
 
 input[type=text], input[type=password], input[type=email] {
-    background-color:black;
-    border:5px #787878 dashed;
     padding:10px;
 }
 
@@ -65,10 +60,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 button, input[type=button], input[type=submit] {
     margin-top: 10px;
     text-align: center;
-    border:8px solid;
-    background-color: #000;
     padding:10px;
-    color:#fff;
 }
 
 button:hover, input[type=button]:hover, input[type=submit]:hover {
@@ -113,7 +105,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
 }
 
 #tabs li.current {
-    background-color: red;
+    background-color: #000;
     color:white;
 }
 
@@ -129,7 +121,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
 }
 
 #welcome h1 span {
-    color:yellow;
+    color:red;
 }
 
 #footer {
