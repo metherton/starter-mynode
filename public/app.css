@@ -78,7 +78,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
 }
 
 #flash {
-    color:yellow;
+  color:#000;
     text-align:center;
     border:2px dashed;
     margin-bottom:20px;
@@ -86,7 +86,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
 }
 
 #flash p, #flash a {
-    color:yellow;
+  color: rgb(6, 92, 27);
     margin:0;
 }
 
