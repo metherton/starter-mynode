@@ -43,7 +43,7 @@ app.post('/message', function(request, response) {
     client.sendSms({
         to: request.param('to'),
         from: TWILIO_NUMBER,
-        body: 'Good luck on your Twilio quest!'
+        body: 'Have fun with your Twilio development!'
     }, function(err, data) {
         // When we get a response from Twilio, respond to the HTTP POST request
         response.send('Message is inbound!');
@@ -57,7 +57,7 @@ app.post('/call', function(request, response) {
     client.makeCall({
         to: request.param('to'),
         from: TWILIO_NUMBER,
-        url: 'http://twimlets.com/message?Message%5B0%5D=http://demo.kevinwhinnery.com/audio/zelda.mp3'
+        url: 'http://twilio-elearning.herokuapp.com/starter/voice.php'
     }, function(err, data) {
         // When we get a response from Twilio, respond to the HTTP POST request
         response.send('Call incoming!');
@@ -69,7 +69,7 @@ app.get('/hello', function(request, response) {
     // Create a TwiML generator
     var twiml = new twilio.TwimlResponse();
     twiml.say('Hello there! You have successfully configured a web hook.');
-    twiml.say('Good luck on your Twilio quest!', { 
+    twiml.say('Have fun with your Twilio development!', { 
         voice:'woman' 
     });
 

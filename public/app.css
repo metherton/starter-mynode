@@ -3,7 +3,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Global Styles */
 html, body {
-  background: url(/whitey.png) center top repeat;
+  background: url(whitey.png) center top repeat;
 }
 
 html, body, * {
