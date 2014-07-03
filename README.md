@@ -1,6 +1,6 @@
-# Welcome to the JavaScript Guild!
+# Welcome to the JavaScript Starter!
 
-As members of the JavaScript guild, you will be working through the challenges of TwilioQuest using server-side JavaScript, specifically [node.js](http://www.nodejs.org).  This project is pre-configured to do some interesting Twilio stuff using node.js and the [Express](http://expressjs.com/) web framework.
+This project is pre-configured to do some interesting Twilio stuff using [node.js](http://www.nodejs.org) and the [Express](http://expressjs.com/) web framework.
 
 ## Setting Up
 
@@ -32,11 +32,9 @@ You will first need to install the application's dependencies.  You can do this 
 
     npm install
 
-Now, you should be able to launch the application.  From your terminal, run `node app.js`.  This should launch your Express application on port 3000 - [visit that URL on your local host](http://localhost:3000/).  Enter your mobile number in the fields provided, and test both SMS text messages and phone calls being sent to the mobile number you provide.  The web UI should look something like this:
-
-![node ui](http://demo.kevinwhinnery.com/upload/Welcome_to_the_JavaScript_Guild%21-20130827-144946.png)
+Now, you should be able to launch the application.  From your terminal, run `node app.js`.  This should launch your Express application on port 3000 - [visit that URL on your local host](http://localhost:3000/).  Enter your mobile number in the fields provided, and test both SMS text messages and phone calls being sent to the mobile number you provide.
 
 If your phone receives both a call and text message, you're good to go!
 
-## Begin Questing!
-This is but your first step into a larger world.  [Return to TwilioQuest](http://quest.twilio.com) to continue your adventure.  Huzzah!
+## Begin Learning Twilio!
+This is your first step into the Twilio learning program.  Return to the site to continue on.  Huzzah!
