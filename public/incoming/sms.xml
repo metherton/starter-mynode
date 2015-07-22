@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Say>The message has been sent. Goodbye.</Say>
+    <Sms>I just responded to a text message. Huzzah!</Sms>
 </Response>

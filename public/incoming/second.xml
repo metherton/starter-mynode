@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Gather numDigits="1" method="GET" action="third.xml">
-        <Say>Please enter a digit to get a nice message</Say>
-    </Gather>
+    <Sms action="third.xml" method="GET" from="+32460203266" to="+31624543741">Have a nice day</Sms>
 </Response>
