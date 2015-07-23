@@ -11,7 +11,7 @@ var client = new twilio.RestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 client.sms.messages.create({
     to:'+31624543741',
     from:TWILIO_NUMBER,
-    body:'Daisy Daisy give me your answer do'
+    body:'Hello from Twilio outbound SMS'
 }, function(error, message) {
     if (error) {
         console.log(error.message);
