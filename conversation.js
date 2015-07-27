@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.get('/', function(req, res) {
     var twilio = require('twilio');
     var twiml = new twilio.TwimlResponse();
-    console.log(req.cookies.count);
+    console.log(req.cookies.counter);
     var counter = parseInt(req.cookies.counter) || 0;
 
     if (counter == 0) {
