@@ -8,7 +8,6 @@ app.use(bodyParser.urlencoded({ extended: true }));  
 app.get('/', function(req, res) { 
     var twilio = require('twilio'); 
     var twiml = new twilio.TwimlResponse(); 
-      //  console.log('body', req.query);
     if (req.query.Body == 'hello') { 
         twiml.sms('Hi!');     }
     else if(req.query.Body == 'bye') { 

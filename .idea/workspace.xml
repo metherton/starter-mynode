@@ -146,7 +146,7 @@
             <entry file="file://$PROJECT_DIR$/server0.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.24793388">
-                  <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+                  <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -766,12 +766,19 @@
       <workItem from="1437679623228" duration="2078000" />
       <workItem from="1437682752770" duration="2992000" />
       <workItem from="1437690605596" duration="3212000" />
-      <workItem from="1437984728358" duration="2164000" />
+      <workItem from="1437984728358" duration="2279000" />
     </task>
+    <task id="LOCAL-00001" summary="use app in server with routing">
+      <created>1437988890221</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1437988890221</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24565000" />
+    <option name="totallyTimeSpent" value="24680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -813,6 +820,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="use app in server with routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="use app in server with routing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1206,7 +1217,7 @@
     <entry file="file://$PROJECT_DIR$/server0.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24793388">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
