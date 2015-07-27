@@ -23,5 +23,8 @@
     "express": "~3.3.5",
     "twilio": "~1.1.4",
     "ejs": "~0.8.4"
+  },
+  "devDependencies": {
+    "twilio": "^1.1.4"
   }
 }
