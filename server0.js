@@ -1,14 +1,26 @@
-var http = require('http'),
-    twilio = require('twilio');
+var http = require('http'), 
+    twilio = require('twilio'),
+    express = require('express'), 
+    bodyParser = require('body-parser');
 
-http.createServer(function (req, res) {
-    //Create TwiML response
-    var twiml = new twilio.TwimlResponse();
-    twiml.sms('Thanks for the sms text martin');
-
-    res.writeHead(200, {'Content-Type': 'text/xml'});
+  var app = express(); 
+app.use(bodyParser.urlencoded({ extended: true }));  
+app.get('/', function(req, res) { 
+    var twilio = require('twilio'); 
+    var twiml = new twilio.TwimlResponse(); 
+      //  console.log('body', req.query);
+    if (req.query.Body == 'hello') { 
+        twiml.sms('Hi!');     }
+    else if(req.query.Body == 'bye') { 
+        twiml.sms('Goodbye'); 
+    } else { 
+        twiml.sms('No Body param match, Twilio sends this in the request to your server.'); 
+    } 
+    res.writeHead(200, {'Content-Type': 'text/xml'}); 
     res.end(twiml.toString());
+     }
+);
 
-}).listen(1337, '127.0.0.1');
-
-console.log('TwiML servin\' server running at http://127.0.0.1:1337');
+http.createServer(app).listen(1337, function () {
+    console.log("Express server listening on port 1337");
+});
