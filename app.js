@@ -89,18 +89,50 @@ app.post('/call', function(request, response) {
 });
 
 // Create a TwiML document to provide instructions for an outbound call
+//app.get('/hello', function(request, response) {
+//    // Create a TwiML generator
+//    var twiml = new twilio.TwimlResponse();
+//    twiml.say('Hello there! You have successfully configured a web hook.');
+//    twiml.say('Have fun with your Twilio development!', {
+//        voice:'woman'
+//    });
+//
+//    // Return an XML response to this request
+//    response.set('Content-Type','text/xml');
+//    response.send(twiml.toString());
+//});
+
 app.get('/hello', function(request, response) {
     // Create a TwiML generator
     var twiml = new twilio.TwimlResponse();
-    twiml.say('Hello there! You have successfully configured a web hook.');
-    twiml.say('Have fun with your Twilio development!', { 
-        voice:'woman' 
-    });
-
+    twiml.say('Hello');
+    twiml.redirect('/step2')
     // Return an XML response to this request
     response.set('Content-Type','text/xml');
     response.send(twiml.toString());
 });
+
+app.post('/step2', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+    twiml.say('Hello from step 2');
+    twiml.redirect('/step3')
+    twiml.say('I\'m never executed');
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+});
+
+app.post('/step3', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+    twiml.say('Hello from step 3');
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+});
+
+
 
 // Create a TwiML document to provide instructions for an outbound call
 app.get('/incoming', function(request, response) {
