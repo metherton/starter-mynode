@@ -132,19 +132,20 @@ app.post('/step3', function(request, response) {
     response.send(twiml.toString());
 });
 
-
-
 // Create a TwiML document to provide instructions for an outbound call
 app.get('/incoming', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
     resp.gather({
         action: '/parsenumber',
-        numDigits: '1'
+        numDigits: '1',
+        timeout: '3'
     }, function() {
         this.say('Press 1 for store hours');
         this.say('Press 2 for weekly specials');
     });
+    resp.say('Please make a choice from the menu');
+    resp.redirect({method: 'GET'}, '/incoming');
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
 });
@@ -156,7 +157,19 @@ app.post('/parsenumber', function(request, response) {
         resp.say('ACME Widgets is open from 9 am to 7 pm, Monday through Friday.');
     } else if (request.body.Digits === '2') {
         resp.say('This week you can buy a 12 pack of widgets for only $9.');
+    } else {
+        resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
+        resp.redirect({method: 'GET'}, '/incoming');
     }
+    resp.say('Thank you for calling ACME Widgets. Goodbye.');
+    resp.hangup();
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+app.post('/handlecall', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
     resp.say('Thank you for calling ACME Widgets. Goodbye.');
     resp.hangup();
     response.set('Content-Type','text/xml');
