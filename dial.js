@@ -7,12 +7,12 @@ var twiml = new twilio.TwimlResponse();
 http.createServer(function (req, res) {
     //Create TwiML response
     var digits = req.Digits;
-    if( digits == 1 ){
+ //   if( digits == 1 ){
         twiml.say('Connecting you to agent 1');
-        twiml.dial('+14151234567',{callerId:'+14152223333'});
+        twiml.dial('+31527203011',{callerId:'+31858889347'});
         res.writeHead(200, {'Content-Type': 'text/xml'});
         res.end(twiml.toString());
-    }
+ //   }
 }).listen(1337, '127.0.0.1');
 
 console.log('running at localhost 1337');

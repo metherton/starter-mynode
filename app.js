@@ -180,7 +180,11 @@ app.post('/dialnumber', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
     if (request.body.Digits === '1') {
-        resp.dial('+31657976717');
+        resp.say('Connecting you to agent 1');
+        resp.dial(function(node) {
+            node.number('+31527203011', {method: 'GET', url: 'http://www.martinetherton.com/voice.xml'});
+        });
+        console.log(resp.toString);
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
         resp.redirect({method: 'GET'}, '/incoming');
