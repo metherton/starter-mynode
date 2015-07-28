@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="/usr/share/java/maven-3.0.3" />
-        <option name="userSettingsFile" value="/usr/share/java/maven-3.0.3/conf/settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="IdProvider" IDEtalkID="9BFFF01803E3396F3B097D8F0ABB712D" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -78,3 +71,4 @@
     </states>
   </component>
 </project>
+

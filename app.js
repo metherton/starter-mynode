@@ -102,6 +102,37 @@ app.get('/hello', function(request, response) {
     response.send(twiml.toString());
 });
 
+// Create a TwiML document to provide instructions for an outbound call
+app.get('/incoming', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
+    resp.gather({
+      //  timeout:'10',
+        action: '/parsenumber'
+    }, function() {
+        this.say('Press 1 for store hours');
+        this.say('Press 2 for weekly specials');
+    });
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+app.get('/parsenumber', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
+    resp.say('Thank you for pressing number 3');
+//    resp.gather({
+//        timeout:'10',
+//        action: '/parsenumber'
+//    }, function() {
+//        this.say('Press 1 for store hours');
+//        this.say('Press 2 for weekly specials');
+//    });
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+
 // Start our express app, by default on port 3000
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
