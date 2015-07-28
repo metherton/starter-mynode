@@ -107,8 +107,8 @@ app.get('/incoming', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
     resp.gather({
-      //  timeout:'10',
-        action: '/parsenumber'
+        action: '/parsenumber',
+        numDigits: '1'
     }, function() {
         this.say('Press 1 for store hours');
         this.say('Press 2 for weekly specials');
@@ -117,17 +117,16 @@ app.get('/incoming', function(request, response) {
     response.send(resp.toString());
 });
 
-app.get('/parsenumber', function(request, response) {
+app.post('/parsenumber', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
-    resp.say('Thank you for pressing number 3');
-//    resp.gather({
-//        timeout:'10',
-//        action: '/parsenumber'
-//    }, function() {
-//        this.say('Press 1 for store hours');
-//        this.say('Press 2 for weekly specials');
-//    });
+    if (request.body.Digits === '1') {
+        resp.say('ACME Widgets is open from 9 am to 7 pm, Monday through Friday.');
+    } else if (request.body.Digits === '2') {
+        resp.say('This week you can buy a 12 pack of widgets for only $9.');
+    }
+    resp.say('Thank you for calling ACME Widgets. Goodbye.');
+    resp.hangup();
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
 });
