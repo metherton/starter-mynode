@@ -143,6 +143,7 @@ app.get('/incoming', function(request, response) {
     }, function() {
         this.say('Press 1 for store hours');
         this.say('Press 2 for weekly specials');
+        this.say('Press 3 to select an extension');
     });
     resp.say('Please make a choice from the menu');
     resp.redirect({method: 'GET'}, '/incoming');
@@ -157,6 +158,14 @@ app.post('/parsenumber', function(request, response) {
         resp.say('ACME Widgets is open from 9 am to 7 pm, Monday through Friday.');
     } else if (request.body.Digits === '2') {
         resp.say('This week you can buy a 12 pack of widgets for only $9.');
+    } else if (request.body.Digits === '3') {
+        resp.gather({
+            action: '/dialnumber',
+            numDigits: '1',
+            timeout: '3'
+        }, function() {
+            this.say('Please enter an extension to call.');
+        });
     } else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
         resp.redirect({method: 'GET'}, '/incoming');
@@ -166,6 +175,23 @@ app.post('/parsenumber', function(request, response) {
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
 });
+
+app.post('/dialnumber', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
+    if (request.body.Digits === '1') {
+        resp.dial('+31657976717');
+    }  else {
+        resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
+        resp.redirect({method: 'GET'}, '/incoming');
+    }
+    resp.say('Thank you for trying to call extension. Goodbye.');
+    resp.hangup();
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+
 
 app.post('/handlecall', function(request, response) {
     // Create a TwiML generator
