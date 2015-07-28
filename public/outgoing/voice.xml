@@ -2,7 +2,8 @@
 <Response>
     <Gather>
         <Say voice="alice">There is a customer on the line.</Say>
-        <Say voice="alice">Listen to this music for 5 seconds then we can hang up on them</Say>
+        <Say voice="alice">Press 1 to accept call.</Say>
+        <Say voice="alice">Press 2 to reject call.</Say>
         <Play>http://demo.twilio.com/docs/classic.mp3</Play>
     </Gather>
     <Hangup/>

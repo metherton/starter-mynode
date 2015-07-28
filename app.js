@@ -154,11 +154,13 @@ app.get('/incoming', function(request, response) {
 app.post('/parsenumber', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
-    if (request.body.Digits === '1') {
+    var digits = request.body.Digits;
+    console.log('parsenumber:', digits);
+    if (digits == 1) {
         resp.say('ACME Widgets is open from 9 am to 7 pm, Monday through Friday.');
-    } else if (request.body.Digits === '2') {
+    } else if (digits == 2) {
         resp.say('This week you can buy a 12 pack of widgets for only $9.');
-    } else if (request.body.Digits === '3') {
+    } else if (digits == 3) {
         resp.gather({
             action: '/dialnumber',
             numDigits: '1',
@@ -176,15 +178,30 @@ app.post('/parsenumber', function(request, response) {
     response.send(resp.toString());
 });
 
+app.post('/handlescreeninput', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+    var digits = request.body.Digits;
+    console.log('handlescreeninput:', digits);
+    if( digits == 1 ){
+        twiml.say('Connecting you to the caller');
+    } else {
+        twiml.hangup();
+    }
+    response.writeHead(200, {'Content-Type': 'text/xml'});
+    response.end(twiml.toString());
+});
+
 app.post('/dialnumber', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
-    if (request.body.Digits === '1') {
+    var digits = request.body.Digits;
+    console.log('dialnumber:', digits);
+    if (digits == 1) {
         resp.say('Connecting you to agent 1');
         resp.dial(function(node) {
-            node.number('+31527203011', {method: 'GET', url: 'http://www.martinetherton.com/voice.xml'});
+            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
         });
-        console.log(resp.toString);
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
         resp.redirect({method: 'GET'}, '/incoming');
