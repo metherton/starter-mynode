@@ -40,8 +40,8 @@
           <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.45454547">
-                  <caret line="164" column="35" selection-start-line="163" selection-start-column="0" selection-end-line="164" selection-end-column="35" />
+                <state vertical-scroll-proportion="0.6528926">
+                  <caret line="172" column="80" selection-start-line="172" selection-start-column="80" selection-end-line="172" selection-end-column="80" />
                   <folding />
                 </state>
               </provider>
@@ -724,7 +724,7 @@
       <workItem from="1437990926349" duration="5997000" />
       <workItem from="1438027454029" duration="5479000" />
       <workItem from="1438070368028" duration="1175000" />
-      <workItem from="1438073750649" duration="14799000" />
+      <workItem from="1438073750649" duration="15213000" />
     </task>
     <task id="LOCAL-00001" summary="use app in server with routing">
       <created>1437988890221</created>
@@ -766,7 +766,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53666000" />
+    <option name="totallyTimeSpent" value="54080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -1237,8 +1237,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45454547">
-          <caret line="164" column="35" selection-start-line="163" selection-start-column="0" selection-end-line="164" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.6528926">
+          <caret line="172" column="80" selection-start-line="172" selection-start-column="80" selection-end-line="172" selection-end-column="80" />
           <folding />
         </state>
       </provider>
