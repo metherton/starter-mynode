@@ -1,22 +1,49 @@
-// Require the twilio and express modules
-var twilio = require('twilio'),
-express = require('express');
-// Create an express application
+// Load app dependencies
+var http = require('http'),
+    path = require('path'),
+    express = require('express'),
+    twilio = require('twilio');
+
+// Load configuration information from system environment variables.
+var TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
+    TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN,
+    TWILIO_NUMBER = process.env.TWILIO_NUMBER;
+
+// Create an authenticated client to access the Twilio REST API
+var client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+
+// Create an Express web application with some basic configuration
 var app = express();
-app.get('/', function(req, res) {
-    // Replace these two arguments with your own account SID and auth token:
-    var capability = new twilio.Capability(
-        process.env.TWILIO_ACCOUNT_SID,
-        process.env.TWILIO_AUTH_TOKEN
-    );
-    // Give the capability generator permission to make outbound calls
-    capability.allowClientOutgoing('APabe7650f654fc34655fc81ae71caa3ff');
-    // Render an HTML page which contains our capability token
-    var token = {
-        token:capability.generate()
-    };
-    res.render('index.ejs', token);
-    console.log(token.token);
+
+app.configure(function(){
+    app.set('port', process.env.PORT || 3000);
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'ejs');
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.listen(3000);
+// render our home page
+app.get('/', function(request, response) {
+
+    // Replace these two arguments with your own account SID and auth token:
+    var capability = new twilio.Capability(
+        TWILIO_ACCOUNT_SID,
+        TWILIO_AUTH_TOKEN
+    );
+    // Give the capability generator permission to make outbound calls
+    capability.allowClientOutgoing('AP9b1001a76c80b78f4fb71baaa8fa0653');
+
+    // Render an HTML page which contains our capability token
+    response.render('client_browser', {token:capability.generate()});
+});
+
+
+// Start our express app, by default on port 3000
+http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
+});

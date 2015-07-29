@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say>Hello from Twilio Client. Thanks for calling from your browser!</Say>
+    <Play>
+        https://dl.dropboxusercontent.com/u/11489766/twilio/elearning/clapping.wav
+    </Play>
+</Response>
