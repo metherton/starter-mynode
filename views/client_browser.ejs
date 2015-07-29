@@ -9,9 +9,7 @@
 
     <script type="text/javascript">
 
-        var token = '<%= token %>';
-
-        Twilio.Device.setup(token, { debug: true });
+        Twilio.Device.setup('<%= token %>', { debug: true });
 
       Twilio.Device.ready(function (device) {
         $("#log").text("Ready");
