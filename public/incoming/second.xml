@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Sms action="third.xml" method="GET" from="+32460203266" to="+31624543741">Have a nice day</Sms>
+    <Message action="third.xml" method="GET" from="+32460203266" to="+31624543741">Have a nice day</Message>
 </Response>

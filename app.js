@@ -153,7 +153,7 @@ app.get('/incoming', function(request, response) {
 
 app.get('/conference', function(request, response) {
     var resp = new twilio.TwimlResponse();
-    resp.say('The conference will begin when the moderator joins');
+    resp.say('The call will begin when the moderator arrives');
     resp.dial(function(node) {
 //            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
         node.conference({startConferenceOnEnter: false, endConferenceOnExit: false}, 'TwilioLive');
@@ -168,9 +168,9 @@ app.get('/conference', function(request, response) {
 app.get('/conferencemoderator', function(request, response) {
     var resp = new twilio.TwimlResponse();
     //resp.say('The conference will begin when the moderator joins');
-    resp.dial(function(node) {
+    resp.dial({hangupOnStar: true, action: 'callend.xml'}, function(node) {
 //            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
-        node.conference({startConferenceOnEnter: true, endConferenceOnExit: true}, 'TwilioLive');
+        node.conference({startConferenceOnEnter: true, endConferenceOnExit: false}, 'TwilioLive');
     });
 
     //resp.say('Thank you for trying to call extension. Goodbye.');
