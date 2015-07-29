@@ -17,18 +17,38 @@
       Twilio.Device.error(function (error) {
         $("#log").text("Error: " + error.message);
       });
-      Twilio.Device.connect(function (conn) {
-        $("#log").text("Successfully established call");
-      });
-      function call() {
-        Twilio.Device.connect();
-      }
+//      Twilio.Device.connect(function (conn) {
+//        $("#log").text("Successfully established call");
+//      });
+//      function call() {
+//        Twilio.Device.connect();
+//      }
     </script>
   </head>
   <body>
     <button class="call" onclick="call();">
       Call
     </button>
+    <!-- Additional HTML -->
+    <button class="hangup" onclick="hangup();">Hangup</button>
+    <script type="text/javascript">
+        function hangup() {
+            Twilio.Device.disconnectAll();
+        }
+    </script>
+
+    <br />
+    <!-- Additional HTML -->
+    <input type="text" id="number" name="number" placeholder="Enter a phone number to call"/>
+    <script type="text/javascript">
+        // updating our call() function
+        function call() {
+            // using jquery to get the value of the element with id 'number'
+            params = {"tocall": $("#number").val()};
+            Twilio.Device.connect(params);
+        }
+    </script>
+
 
     <div id="log">Loading...</div>
   

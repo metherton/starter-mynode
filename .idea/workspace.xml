@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75181438-1757-4145-8cb9-9c01fa349bc4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/client_browser.ejs" afterPath="$PROJECT_DIR$/views/client_browser.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientout.js" afterPath="$PROJECT_DIR$/clientout.js" />
     </list>
     <ignored path="starter-node.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,24 +25,24 @@
     <favorites_list name="starter-node" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54131055">
+    <splitter split-orientation="horizontal" split-proportion="0.37891737">
       <split-first>
         <leaf>
-          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="8" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="275" selection-end-column="3" />
+                <state vertical-scroll-proportion="0.6695502">
+                  <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="122" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="client_browser.ejs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="client_browser.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/client_browser.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.27710843">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <state vertical-scroll-proportion="-16.25">
+                  <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -127,8 +128,8 @@
           <file leaf-file-name="clientout.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/clientout.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.23140496">
-                  <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+                <state vertical-scroll-proportion="0.72727275">
+                  <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -182,9 +183,9 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/client.js" />
         <option value="$PROJECT_DIR$/public/client.xml" />
-        <option value="$PROJECT_DIR$/clientout.js" />
         <option value="$PROJECT_DIR$/views/cliient_browser.ejs" />
         <option value="$PROJECT_DIR$/views/client_browser.ejs" />
+        <option value="$PROJECT_DIR$/clientout.js" />
       </list>
     </option>
   </component>
@@ -815,7 +816,7 @@
       <workItem from="1438073750649" duration="21431000" />
       <workItem from="1438176334224" duration="2108000" />
       <workItem from="1438180920364" duration="282000" />
-      <workItem from="1438181401656" duration="454000" />
+      <workItem from="1438181401656" duration="1912000" />
     </task>
     <task id="LOCAL-00001" summary="use app in server with routing">
       <created>1437988890221</created>
@@ -857,7 +858,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63142000" />
+    <option name="totallyTimeSpent" value="64600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -1261,14 +1262,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="275" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1284,18 +1277,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientout.js">
+    <entry file="file://$PROJECT_DIR$/views/client_browser.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23140496">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/client_browser.ejs">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27710843">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6695502">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="122" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72727275">
+          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
           <folding />
         </state>
       </provider>

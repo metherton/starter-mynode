@@ -42,6 +42,17 @@ app.get('/', function(request, response) {
     response.render('client_browser', {token:capability.generate()});
 });
 
+app.post('/browseroutcall', function(request, response) {
+    var resp = new twilio.TwimlResponse();
+    var tocall = request.param('tocall'); // custom parameter from Twilio.Device.connect
+
+    resp.dial(
+        tocall,
+        { callerId:'+31858889347'} //a phone number you've verified with Twilio to use as a caller ID number
+    );
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
 
 // Start our express app, by default on port 3000
 http.createServer(app).listen(app.get('port'), function(){
