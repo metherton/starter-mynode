@@ -17,13 +17,25 @@
       Twilio.Device.error(function (error) {
         $("#log").text("Error: " + error.message);
       });
-//      Twilio.Device.connect(function (conn) {
-//        $("#log").text("Successfully established call");
-//      });
-//      function call() {
-//        Twilio.Device.connect();
-//      }
+
     </script>
+
+    <script type="text/javascript">
+        Twilio.Device.incoming(function (connection) {
+            if (confirm('Accept incoming call from ' + connection.parameters.From + '?')) {
+                connection.accept();
+            } else {
+                connection.reject();
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        Twilio.Device.disconnect(function (conn) {
+            $("#log").text("Call ended");
+        });
+    </script>
+
   </head>
   <body>
     <button class="call" onclick="call();">

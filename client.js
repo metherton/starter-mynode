@@ -37,6 +37,7 @@ app.get('/', function(request, response) {
     );
     // Give the capability generator permission to make outbound calls
     capability.allowClientOutgoing('AP9b1001a76c80b78f4fb71baaa8fa0653');
+    capability.allowClientIncoming('tommy');
 
     // Render an HTML page which contains our capability token
     response.render('client_browser', {token:capability.generate()});
@@ -53,6 +54,20 @@ app.post('/browseroutcall', function(request, response) {
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
 });
+
+app.get('/dialclient', function(request, response) {
+    var resp = new twilio.TwimlResponse();
+
+    resp.dial(function(node){
+        node.client('tommy');
+    });
+
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+
+
 
 // Start our express app, by default on port 3000
 http.createServer(app).listen(app.get('port'), function(){
