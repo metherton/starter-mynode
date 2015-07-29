@@ -199,8 +199,9 @@ app.post('/dialnumber', function(request, response) {
     console.log('dialnumber:', digits);
     if (digits == 1) {
         resp.say('Connecting you to agent 1');
-        resp.dial(function(node) {
-            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
+        resp.dial({action: '/dialcallstatus'}, function(node) {
+//            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
+            node.number('+31618285851', {method: 'GET', url: 'screen-caller.xml'});
         });
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
@@ -219,6 +220,22 @@ app.post('/handlecall', function(request, response) {
     var resp = new twilio.TwimlResponse();
     resp.say('Thank you for calling ACME Widgets. Goodbye.');
     resp.hangup();
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+app.post('/statuscallback', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
+    resp.say('The caller has disconnected');
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+app.post('/dialcallstatus', function(request, response) {
+    // Create a TwiML generator
+    var resp = new twilio.TwimlResponse();
+    resp.say('The caller has disconnected');
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
 });
