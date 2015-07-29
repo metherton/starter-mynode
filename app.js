@@ -151,6 +151,21 @@ app.get('/incoming', function(request, response) {
     response.send(resp.toString());
 });
 
+app.get('/conference', function(request, response) {
+    var resp = new twilio.TwimlResponse();
+    resp.say('Your conference is starting');
+    resp.dial(function(node) {
+//            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
+        node.conference('TwilioRocks');
+    });
+
+    //resp.say('Thank you for trying to call extension. Goodbye.');
+    //resp.hangup();
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+});
+
+
 app.post('/parsenumber', function(request, response) {
     // Create a TwiML generator
     var resp = new twilio.TwimlResponse();
