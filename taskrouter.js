@@ -33,6 +33,12 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
+app.get('/agent/:id', function(request, response) {
+
+    // Render an HTML page which contains our capability token
+    response.render('agent_browser',  {id: request.params.id});
+});
+
 app.post('/assignments', function(req, res) {
 
     //var response = {instruction: 'accept'};
