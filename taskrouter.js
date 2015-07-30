@@ -8,7 +8,8 @@ var http = require('http'),
 // Load configuration information from system environment variables.
 var TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
     TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN,
-    TWILIO_NUMBER = process.env.TWILIO_NUMBER;
+    TWILIO_NUMBER = process.env.TWILIO_NUMBER
+    WORKSPACE_SID = 'WS2b332a2b43dc7e9e6570b7ac423afcf6';
 
 // Create an authenticated client to access the Twilio REST API
 var client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
@@ -33,10 +34,20 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
-app.get('/agent/:id', function(request, response) {
+app.get('/agent/:worker_sid', function(request, response) {
+
+    var workerCapability = new twilio.TaskRouterCapability(
+        TWILIO_ACCOUNT_SID,
+        TWILIO_AUTH_TOKEN,
+        WORKSPACE_SID,
+        request.params.worker_sid
+    );
+
+    workerCapability.allowWorkerFetchAttributes();
+    workerCapability.allowWorkerActivityUpdates();
 
     // Render an HTML page which contains our capability token
-    response.render('agent_browser',  {id: request.params.id});
+    response.render('agent_browser',  {worker_token: workerCapability.generate()});
 });
 
 app.post('/assignments', function(req, res) {
