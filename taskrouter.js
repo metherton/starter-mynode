@@ -38,13 +38,17 @@ app.post('/assignments', function(req, res) {
     //var response = {instruction: 'accept'};
 
 
-    var response = {instruction: 'dequeue', post_work_activity_ids: 'WAc8db9ecd2be972674749569394841e54'  ,from: '+31858889347'};
+    var response = {instruction: 'dequeue', post_work_activity_sid: 'WAc8db9ecd2be972674749569394841e54'  ,from: '+31858889347'};
 
     console.log('in assignments');
 
-    res.set('Content-Type','application/json');
+  //  res.set('Content-Type','application/json');
+
+    res.writeHead(200, {'Content-Type': 'application/json'});
+
     var json = JSON.stringify(response);
-    res.send(json);
+    res.end(json);
+ //   res.send(json);
 });
 
 // Create a TwiML document to provide instructions for an outbound call
