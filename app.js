@@ -229,8 +229,7 @@ app.post('/dialnumber', function(request, response) {
     if (digits == 1) {
         resp.say('Connecting you to agent 1');
         resp.dial({action: '/dialcallstatus'}, function(node) {
-//            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
-            node.number('+31618285851', {method: 'GET', url: 'screen-caller.xml'});
+            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
         });
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');

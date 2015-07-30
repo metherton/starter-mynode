@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75181438-1757-4145-8cb9-9c01fa349bc4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/client_video_browser.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clientcall.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clientvideo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client.js" afterPath="$PROJECT_DIR$/capstone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/twilio/old-help.md" afterPath="$PROJECT_DIR$/node_modules/twilio/old-help.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
     <ignored path="starter-node.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +27,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.6419753">
       <split-first>
         <leaf>
-          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.6666665">
-                  <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="46" selection-end-column="7" />
+                <state vertical-scroll-proportion="0.33217993">
+                  <caret line="41" column="18" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -52,10 +47,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="capstone.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="capstone.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/capstone.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5847751">
+                <state vertical-scroll-proportion="-34.185184">
                   <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
                   <folding />
                 </state>
@@ -160,8 +155,8 @@
         <option value="$PROJECT_DIR$/client.js" />
         <option value="$PROJECT_DIR$/views/client_browser.ejs" />
         <option value="$PROJECT_DIR$/views/client_video_browser.ejs" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/capstone.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -760,7 +755,7 @@
       <workItem from="1438073750649" duration="21431000" />
       <workItem from="1438176334224" duration="2108000" />
       <workItem from="1438180920364" duration="282000" />
-      <workItem from="1438181401656" duration="7691000" />
+      <workItem from="1438181401656" duration="7831000" />
     </task>
     <task id="LOCAL-00001" summary="use app in server with routing">
       <created>1437988890221</created>
@@ -802,11 +797,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70379000" />
+    <option name="totallyTimeSpent" value="70519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -824,7 +819,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17734376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17734376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1229,18 +1224,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/capstone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6666665">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="46" selection-end-column="7" />
+        <state vertical-scroll-proportion="-34.185184">
+          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capstone.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5847751">
-          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.33217993">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="18" />
           <folding />
         </state>
       </provider>
