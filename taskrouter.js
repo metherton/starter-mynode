@@ -2,7 +2,8 @@
 var http = require('http'),
     path = require('path'),
     express = require('express'),
-    twilio = require('twilio');
+    twilio = require('twilio'),
+    bodyParser = require('body-parser');
 
 // Load configuration information from system environment variables.
 var TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
@@ -14,8 +15,8 @@ var client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 // Create an Express web application with some basic configuration
 var app = express();
-console.log('about to stop debugger');
-debugger;
+app.use(bodyParser.json());
+
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
@@ -30,6 +31,20 @@ app.configure(function(){
 
 app.configure('development', function(){
     app.use(express.errorHandler());
+});
+
+app.post('/assignments', function(req, res) {
+
+    //var response = {instruction: 'accept'};
+
+
+    var response = {instruction: 'dequeue', post_work_activity_ids: 'WAc8db9ecd2be972674749569394841e54'  ,from: '+31858889347'};
+
+    console.log('in assignments');
+
+    res.set('Content-Type','application/json');
+    var json = JSON.stringify(response);
+    res.send(json);
 });
 
 // Create a TwiML document to provide instructions for an outbound call
@@ -62,8 +77,10 @@ app.post('/enqueuecall', function(request, response) {
         language = "en";
     }
     resp.enqueue({workflowSid: 'WW50d2a142e9a85d125c49d3bd8789a9da'}, function(node) {
-        var taskAttribute = '{"selected_language": "' + language + '"}';
-        node.taskAttributes(taskAttribute);
+        //var taskAttribute = '{"selected_language": "' + language + '"}'; // this works
+        var taskAttribute = {selected_language: language}; // doesnt work
+
+        node.taskAttributes(JSON.stringify(taskAttribute));
     });
     response.set('Content-Type','text/xml');
     response.send(resp.toString());
