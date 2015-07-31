@@ -57,7 +57,6 @@ app.post('/assignments', function(req, res) {
 
     var response = {instruction: 'dequeue', post_work_activity_sid: 'WAc8db9ecd2be972674749569394841e54'  ,from: '+31858889347'};
 
-    console.log('in assignments');
 
   //  res.set('Content-Type','application/json');
 
