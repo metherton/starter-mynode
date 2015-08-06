@@ -52,11 +52,36 @@ app.post('/waitmusic', function(request, response) {
 
 });
 
+app.post('/abouttoconnect', function(request, response) {
+
+    var twiml = new twilio.TwimlResponse();
+
+    twiml.say('You will now be connected to an agent.');
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+
+});
+
+
+app.get('/agents', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+
+    twiml.dial(function(node) {
+        node.queue({url: '/abouttoconnect'}, 'callers');
+    });
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+});
+
+
 app.get('/callers', function(request, response) {
     // Create a TwiML generator
     var twiml = new twilio.TwimlResponse();
 
-    twiml.enqueue({waitUrl: 'waitmusic'}, 'support');
+    twiml.enqueue({waitUrl: 'waitmusic'}, 'callers');
     // Return an XML response to this request
     response.set('Content-Type','text/xml');
     response.send(twiml.toString());
