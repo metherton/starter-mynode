@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <Say>Thanks for calling. We're sending you a message.</Say>
-    <Redirect method="GET">http://b718d86a.ngrok.io/incoming/second.xml</Redirect>
+    <Redirect method="GET">second.xml</Redirect>
 </Response>

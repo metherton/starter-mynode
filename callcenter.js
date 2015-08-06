@@ -76,6 +76,14 @@ app.get('/agents', function(request, response) {
     response.send(twiml.toString());
 });
 
+app.get('/queues', function(request, response) {
+    console.log('client', client);
+    var queues = client.listQueues();
+    console.log('++++++++++queues++++++++++++++', queues);
+    queues.forEach(function(element) {
+        process.stdout.write(element.toString());
+    });
+});
 
 app.get('/callers', function(request, response) {
     // Create a TwiML generator
