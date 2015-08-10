@@ -52,6 +52,24 @@ app.post('/waitmusic', function(request, response) {
 
 });
 
+
+app.post('/saleswaitmusic', function(request, response) {
+
+    var twiml = new twilio.TwimlResponse();
+
+    var queuePosition = request.body.QueuePosition;
+    var waitTime = request.body.AvgQueueTime;
+
+    twiml.say('Hello, you are caller  ' + queuePosition + ' in line. There is an average wait time of ' + waitTime + ' .');
+    twiml.play('http://com.twilio.sounds.music.s3.amazonaws.com/MARKOVICHAMP-Borghestral.mp3');
+
+    twiml.redirect('/waitmusic');
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+
+});
+
 app.post('/abouttoconnect', function(request, response) {
 
     var twiml = new twilio.TwimlResponse();
@@ -76,13 +94,42 @@ app.get('/agents', function(request, response) {
     response.send(twiml.toString());
 });
 
-app.get('/queues', function(request, response) {
-    console.log('client', client);
-    var queues = client.listQueues();
-    console.log('++++++++++queues++++++++++++++', queues);
-    queues.forEach(function(element) {
-        process.stdout.write(element.toString());
+app.get('/salesagents', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+
+    twiml.dial(function(node) {
+        node.queue({url: '/abouttoconnect'}, 'sales');
     });
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+});
+
+var isArray = function (value) {
+    return value && typeof value === 'object' && value.constructor === Array;
+};
+
+
+app.get('/queues', function(request, response) {
+
+    client.queues.list({   }, function(err, data) {
+        data.queues.forEach(function(queue) {
+            console.log(queue);
+            console.log(queue.friendlyName);
+        });
+    });
+
+});
+
+app.get('/members', function(request, response) {
+
+    client.queues.list({   }, function(err, data) {
+        data.queues.forEach(function(queue) {
+            console.log(queue.friendlyName);
+        });
+    });
+
 });
 
 app.get('/callers', function(request, response) {
@@ -94,6 +141,17 @@ app.get('/callers', function(request, response) {
     response.set('Content-Type','text/xml');
     response.send(twiml.toString());
 });
+
+app.get('/salescallers', function(request, response) {
+    // Create a TwiML generator
+    var twiml = new twilio.TwimlResponse();
+
+    twiml.enqueue({waitUrl: 'saleswaitmusic'}, 'sales');
+    // Return an XML response to this request
+    response.set('Content-Type','text/xml');
+    response.send(twiml.toString());
+});
+
 
 app.post('/step2', function(request, response) {
     // Create a TwiML generator
@@ -212,7 +270,8 @@ app.post('/dialnumber', function(request, response) {
     if (digits == 1) {
         resp.say('Connecting you to agent 1');
         resp.dial({action: '/dialcallstatus'}, function(node) {
-            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
+       //     node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
+            node.number('+31624543741', {method: 'GET', url: 'screen-caller.xml'});
         });
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say>Welcome to the karaoke jam line. We're connecting you to the music</Say>
+    <Dial method="GET" action="/callrecording">+17742341010</Dial>
+</Response>

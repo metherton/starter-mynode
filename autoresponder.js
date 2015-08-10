@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function(req, res) {
         var twilio = require('twilio');
         var twiml = new twilio.TwimlResponse();
+        console.log(twiml);
         var body = req.query.Body;
         console.log('body:', body);
         console.log('responsMapper', responseMapper);

@@ -137,6 +137,41 @@ app.get('/incoming', function(request, response) {
     response.send(resp.toString());
 });
 
+app.post('/callrecording', function(request, response) {
+
+    var resp = new twilio.TwimlResponse();
+
+    var recordingUrl = request.RecordingUrl;
+
+    console.log(request);
+    console.log(recordingUrl);
+
+    resp.hangup();
+    response.set('Content-Type','text/xml');
+    response.send(resp.toString());
+
+});
+
+app.get('/startrecording', function(request, response) {
+
+    client.calls.create({
+        to: '+31624543741',
+        from: TWILIO_NUMBER,
+        url: 'http://www.martinetherton.com/voice.xml',
+        method: "GET",
+        fallbackMethod: "GET",
+        statusCallbackMethod: "GET",
+        record: "false"
+    }, function(error, call) {
+        if (error) {
+            console.log(error.message);
+        } else {
+            process.stdout.write(call.sid);
+        }
+    });
+
+});
+
 app.get('/conference', function(request, response) {
     var resp = new twilio.TwimlResponse();
     resp.say('The call will begin when the moderator arrives');
@@ -215,7 +250,7 @@ app.post('/dialnumber', function(request, response) {
     if (digits == 1) {
         resp.say('Connecting you to agent 1');
         resp.dial({action: '/dialcallstatus'}, function(node) {
-            node.number('+31624543741', {method: 'GET', url: 'screen-caller.xml'});
+            node.number('+31527203011', {method: 'GET', url: 'screen-caller.xml'});
         });
     }  else {
         resp.say('I\'m sorry, that is not a valid choice. Please make a choice from the menu');
@@ -227,15 +262,6 @@ app.post('/dialnumber', function(request, response) {
     response.send(resp.toString());
 });
 
-
-app.post('/endcall', function(request, response) {
-    // Create a TwiML generator
-    var twiml = new twilio.TwimlResponse();
-    twiml.say('The caller has disconnected');
-    // Return an XML response to this request
-    response.set('Content-Type','text/xml');
-    response.send(twiml.toString());
-});
 
 
 app.post('/handlecall', function(request, response) {
@@ -256,68 +282,6 @@ app.post('/statuscallback', function(request, response) {
 });
 
 
-//app.post('/callrecording', function(request, response) {
-//
-//    var resp = new twilio.TwimlResponse();
-//
-//    var recordingUrl = request.RecordingUrl;
-//
-//    console.log(recordingUrl);
-//
-//    resp.hangup();
-//    response.set('Content-Type','text/xml');
-//    response.send(resp.toString());
-//});
-
-app.get('/callrecording', function(request, response) {
-
-    var resp = new twilio.TwimlResponse();
-
-  //      var recordingUrl = request.RecordingUrl;
-
-//    console.log(recordingUrl);
-
-    resp.say('The caller is now connected');
-
-    resp.hangup();
-    response.set('Content-Type','text/xml');
-    response.send(resp.toString());
-});
-
-app.get('/startrecording', function(request, response) {
-
-    var resp = new twilio.TwimlResponse();
-
-    //      var recordingUrl = request.RecordingUrl;
-
-//    console.log(recordingUrl);
-
-
-
-    client.calls.create({
-        to: '+31624543741',
-        from: TWILIO_NUMBER,
-        url: 'http://a2770470.ngrok.io/incoming/record.xml',
-        method: "GET",
-        fallbackMethod: "GET",
-        statusCallbackMethod: "GET",
-        statusCallback: 'http://a2770470.ngrok.io/callrecording',
-        record: "true"
-    }, function(error, call) {
-        if (error) {
-            console.log(error.message);
-        } else {
-            process.stdout.write(call.sid);
-        }
-    });
-
-    resp.say('The caller is now connected');
-
-    resp.hangup();
-    response.set('Content-Type','text/xml');
-    response.send(resp.toString());
-
-});
 
 
 app.post('/dialcallstatus', function(request, response) {
