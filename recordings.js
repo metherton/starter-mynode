@@ -42,7 +42,8 @@ app.get('/', function(request, response) {
     }, function(err, data) {
         data.recordings.forEach(function(recording) {
             if (recording.sid) {
-               myRecordings.push(recording.sid);
+                console.log(recording);
+               myRecordings.push(recording);
             }
         });
         response.render('recordings', {recordings: myRecordings});

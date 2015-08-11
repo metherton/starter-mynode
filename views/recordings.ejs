@@ -18,7 +18,7 @@
     <div id="content">
 
         <% recordings.forEach(function(el) {
-             %><div><%= el  %></div><%
+             %><div><span>sid: <%= el.sid  %></span><span>date created: <%= el.date_created  %></span><span>duration: <%= el.duration  %></span><span>audio: <audio controls><source type="audio/wav" src="<%= 'https://api.twilio.com' + el.uri.replace('json','wav')  %>"></audio></span></div><%
         }); %>
     </div>
 
