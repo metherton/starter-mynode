@@ -4,6 +4,7 @@ var http = require('http'),
     express = require('express'),
     twilio = require('twilio');
 
+
 // Load configuration information from system environment variables.
 var TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
     TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN,
@@ -27,55 +28,28 @@ app.configure(function(){
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
+// render our home page
+app.get('/agent/:name', function(request, response) {
 
-var token = 'test123';
+    var name = request.params.name;
 
-var myEndpoint = new Twilio.Endpoint(token, {debug: true});
+    // Replace these two arguments with your own account SID and auth token:
+    var token = new twilio.AccessToken(
 
-myEndpoint.listen().then(function(endpoint) {
-        $('#log').text("Address " + endpoint.address + " Listening for Invites");
-    }, function(error) {
-    $('#log').text("Endpoint could not start listening");
+        TWILIO_ACCOUNT_SID
+    );
+    // Give the capability generator permission to make outbound calls
+    capability.allowClientOutgoing('AP9b1001a76c80b78f4fb71baaa8fa0653');
+    capability.allowClientIncoming('tommy');
+
+    // Render an HTML page which contains our capability token
+    response.render('client_browser', {token:capability.generate()});
+
+    // Render an HTML page which contains our capability token
+    response.render('client_video_browser', {token:'eyJjdHkiOiJ0d2lsaW8tc2F0O3Y9MSIsImFsZyI6IkhTMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiJTSzE5MjdiYmMxODE4M2FkZjU0ZGQ3YmZjM2UxMGQ3YmYza2pocWhQaGh1YmFNT1NQalciLCJpc3MiOiJTSzE5MjdiYmMxODE4M2FkZjU0ZGQ3YmZjM2UxMGQ3YmYzIiwic3ViIjoiQUM4Y2FhMmFmYjlkNTI3OTkyNjYxOWM0NThkYzcwOTlhOCIsImV4cCI6MTQ0MDE5NDI5MS44NDQ3NDMsImdyYW50cyI6W3siYWN0IjpbIioiXSwicmVzIjoiaHR0cHM6Ly9hcGkudHdpbGlvLmNvbS8yMDEwLTA0LTAxL0FjY291bnRzL0FDOGNhYTJhZmI5ZDUyNzk5MjY2MTljNDU4ZGM3MDk5YTgvVG9rZW5zIn0seyJhY3QiOlsiKiJdLCJyZXMiOiJodHRwczovL2FwaS50d2lsaW8uY29tLzIwMTAtMDQtMDEvQWNjb3VudHMvQUM4Y2FhMmFmYjlkNTI3OTkyNjYxOWM0NThkYzcwOTlhOC9Ub2tlbnMuanNvbiJ9LHsiYWN0IjpbImxpc3RlbiIsImludml0ZSJdLCJyZXMiOiJzaXA6cm9tYWluQEFDOGNhYTJhZmI5ZDUyNzk5MjY2MTljNDU4ZGM3MDk5YTguZW5kcG9pbnQudHdpbGlvLmNvbSJ9XSwibmJmIjoxNDQwMTA4MTcxLjg0NDc0MX0.bniBVrmiKtuai6lypn39d0Bu6h8ARxgEP7HOYPd9qBc'});
 });
 
-
-
-// leave conversation
-
-
-myEndpoint.createConversation(remoteAddress).then(function(conversation) {
-    conversation.on('participantJoined', function(participant) {
-        participant.media.attach(document.getElementById('remote-video'));
-    })
-}, function(error) {
-    console.error('Unable to set up call.');
-});
-
-myConversation.on('participantConnected', function(participant) {
-    console.log(participant.address + ' joined the Conversation');
-    // Get the participant's Media,
-    var remoteMedia = participant.media;
-    // attach the media stream to a div in your application
-    remoteMedia.attach(document.getElementById('participant-videos'));
-});
-
-myConversation.on('leave', function() {
-    console.log('left the Conversation');
-});
-
-//myEndpoint.on('invite', function(invite) {
-//    if (confirm('Accept invite from ' + invite.from + '?')) {
-//        invite.accept().then(function(conversation) {});
-//    } else {
-//        invite.reject();
-//    }
-//}, function(error) {
-//    $('#log').text(error.message);
-//});
-
-myEndpoint.on('invite', function(invite) {
-    $('#log').text("Incoming invite from: " + invite.from);
-    invite.accept().then(function(conversation) {
-        $('#log').text("Connected to " + invite.from);
-    });
+// Start our express app, by default on port 3000
+http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
 });
